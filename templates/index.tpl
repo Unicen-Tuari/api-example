@@ -15,16 +15,15 @@
       <div class="row">
         <div class="col-md-6">
           <label class="control-label" for="nombre">Tarea</label>
-          <ul class="list-group">
+          <button id="refresh" type="button" class="btn btn-default btn-xs pull-right " aria-label="Refresh">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+          </button>
+          <ul id="listaTareas" class="list-group">
             {foreach $tareas as $tarea}
-            <li class="list-group-item">
-                  {if $tarea['realizada']}
-                    <s>{$tarea['tarea']}</s>
-                  {else}
-                    {$tarea['tarea']}
-                  {/if}
-                  <a class="glyphicon glyphicon-trash" href="index.php?action=borrar_tarea&id_task={$tarea['id']}"></a>
-                  <a class="glyphicon glyphicon-ok" href="index.php?action=realizar_tarea&id_task={$tarea['id']}"></a>
+            <li class="list-group-item" id="tarea{$tarea['id']}" >{if $tarea['realizada']}<s>{$tarea['tarea']}</s>{else}{$tarea['tarea']}{/if}
+<a class="glyphicon glyphicon-trash borrar" idtarea="{$tarea['id']}"></a>
+<a class="glyphicon glyphicon-ok" idtarea="{$tarea['id']}"></a>
+            </li>
             {/foreach}
           </ul>
         </div>
@@ -47,7 +46,7 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <form action="index.php?action=agregar_tarea" method="POST" enctype="multipart/form-data">
+          <form id="addTarea" action="index.php?action=agregar_tarea" method="POST" enctype="multipart/form-data">
             <div class="form-group">
               <label for="task">Tarea</label>
               <input type="text" class="form-control" id="task" name="task" placeholder="Tarea">
@@ -57,6 +56,8 @@
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/tareas.js"></script>
   </body>
 </html>
