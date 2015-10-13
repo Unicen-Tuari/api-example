@@ -19,12 +19,6 @@
             <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
           </button>
           <ul id="listaTareas" class="list-group">
-            {foreach $tareas as $tarea}
-            <li class="list-group-item" id="tarea{$tarea['id']}" >{if $tarea['realizada']}<s>{$tarea['tarea']}</s>{else}{$tarea['tarea']}{/if}
-<a class="glyphicon glyphicon-trash borrar" idtarea="{$tarea['id']}"></a>
-<a class="glyphicon glyphicon-ok" idtarea="{$tarea['id']}"></a>
-            </li>
-            {/foreach}
           </ul>
         </div>
       </div>
@@ -58,6 +52,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.3/mustache.js"></script>
     <script src="js/tareas.js"></script>
   </body>
 </html>
