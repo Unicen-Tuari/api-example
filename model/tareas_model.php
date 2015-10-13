@@ -18,10 +18,7 @@ class TareasModel {
   function agregarTarea($tarea){
     $consulta = $this->db->prepare('INSERT INTO tarea(tarea) VALUES(?)');
     $consulta->execute(array($tarea));
-    if($consulta->rowCount() > 0)
-      return 'Tarea agregada';
-    else
-      return 'No se Agrego';
+    return $this->db->lastInsertId();
   }
 
   function borrarTarea($id_tarea){

@@ -1,0 +1,11 @@
+<li class="list-group-item" id="tarea{{id}}" >
+  {{#realizada}}
+  <s>
+  {{/realizada}}
+    {{tarea}}
+  {{#realizada}}
+  </s>
+  {{/realizada}}
+<a class="glyphicon glyphicon-trash borrar" idtarea="{{id}}"></a>
+<a class="glyphicon glyphicon-ok realizar" idtarea="{{id}}"></a>
+</li>
